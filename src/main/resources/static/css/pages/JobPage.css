@@ -1,0 +1,22 @@
+
+.ui.vertical.segment {
+    padding: 8em 0em;
+}
+
+h3.ui.header.job-header-1 {
+    font-size: 3em;
+    padding-bottom: 3em;
+}
+
+.job-offer {
+    font-size: 2em;
+    text-indent: 50px;
+}
+
+.ui.grid.demands {
+    padding-top: 3em;
+}
+
+.ui.grid.info {
+    padding-top: 15em;
+}

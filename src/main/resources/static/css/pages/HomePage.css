@@ -1,0 +1,36 @@
+
+.ipad {
+    position: absolute;
+    top: 100px;
+}
+
+.screen {
+    position: absolute;
+    top: 143px;
+    max-width: 404px;
+    max-height: 538px;
+}
+
+.velexauto {
+    font-size: 4em;
+    font-weight: normal;
+    margin-top: 2em;
+}
+
+.ui.vertical.segment {
+    padding: 8em 0em;
+}
+
+h3.ui.header.home-headers {
+    font-size: 2em;
+}
+
+.home-p {
+    font-size: 1.33em;
+}
+
+.ui.vertical.segment.home-page {
+    min-height: 700px;
+    padding: 1em 0em;
+}
+

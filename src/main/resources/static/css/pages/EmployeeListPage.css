@@ -1,0 +1,9 @@
+
+.ui.vertical.segment.employee-list {
+    padding: 10em;
+}
+
+h3.ui.header.list {
+    font-size: 3em;
+    padding-bottom: 2em;
+}

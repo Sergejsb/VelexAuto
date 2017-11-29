@@ -1,0 +1,12 @@
+
+.ui.vertical.segment {
+    padding: 8em 0em;
+}
+
+.ui.grid.login {
+    padding: 10em 10em;
+}
+
+.login-form {
+    max-width: 450px;
+}

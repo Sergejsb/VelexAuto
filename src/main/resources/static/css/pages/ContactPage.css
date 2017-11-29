@@ -1,0 +1,22 @@
+
+.location {
+    position: absolute;
+    height: 38px;
+    width: 25px;
+    left: 450px;
+    bottom: 155px;
+}
+
+.ui.vertical.segment {
+    padding: 8em 0em;
+}
+
+.contacts {
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+.line {
+    padding: 2em 2em;
+    text-transform: uppercase;
+}
