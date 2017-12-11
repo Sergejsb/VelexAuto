@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { PropTypes } from 'prop-types';
 import {
     Menu,
@@ -18,13 +19,13 @@ import '../../resources/static/css/components/MenuComponent.css';
 
 class MenuComponent extends Component {
 
-    logout(event) {
-        event.preventDefault();
-        this.props.logout();
+    logout() {
+        const { logout } = this.props;
+        logout();
     }
 
     render() {
-        const  isAuthenticated  = this.props.isAuthenticated;
+        const { isAuthenticated }  = this.props.isAuthenticated;
 
         const guests = (
             <Menu inverted stackable secondary size='large'>
@@ -83,12 +84,19 @@ class MenuComponent extends Component {
 MenuComponent.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired
-}
+};
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        isAuthenticated: state.employeeStore.isAuthenticated
+        isAuthenticated: employeeStore.isAuthenticated
     }
 }
 
-export default connect(mapStateToProps, { logout })(MenuComponent);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        logout: logout
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuComponent);

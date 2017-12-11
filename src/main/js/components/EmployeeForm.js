@@ -48,9 +48,9 @@ const validate = (values) => {
 class EmployeeForm extends Component {
 
     componentWillReceiveProps = (nextProps) => {
-        const { employee } = nextProps;
+        const { employee, initialize } = nextProps;
         if (employee.id !== this.props.employee.id) {
-            this.props.initialize(employee);
+            initialize(employee);
         }
     };
 
@@ -63,32 +63,59 @@ class EmployeeForm extends Component {
     );
 
     render() {
-        const { handleSubmit, pristine, submitting, loading } = this.props;
+        const { handleSubmit, pristine, submitting, loading, employee } = this.props;
         return (
             <Grid centered columns={2} className='employee-form'>
                 <Grid.Row>
                     <Grid.Column>
                         <Segment stacked>
                             <h1 className='form'>
-                                { this.props.employee.id ? 'Редактировать' : 'Добавить нового сотрудника' }
+                                { employee.id ? 'Редактировать' : 'Добавить нового сотрудника' }
                             </h1>
                             <Form onSubmit={handleSubmit} loading={loading}>
                                 <Form.Group widths='equal'>
-                                    <Field name='name' type='text' component={this.renderField} label='Имя' />
-                                    <Field name='surname' type='text' component={this.renderField} label='Фамилия' />
+                                    <Field name='name'
+                                           type='text'
+                                           component={this.renderField}
+                                           label='Имя'
+                                    />
+                                    <Field name='surname'
+                                           type='text'
+                                           component={this.renderField}
+                                           label='Фамилия'
+                                    />
                                 </Form.Group>
                                 <Form.Group widths='equal'>
-                                    <Field name='age' type='number' component={this.renderField} label='Возраст' />
-                                    <Field name='salary' type='number' component={this.renderField} label='Зарплата, евро' />
+                                    <Field name='age'
+                                           type='number'
+                                           component={this.renderField}
+                                           label='Возраст'
+                                    />
+                                    <Field name='salary'
+                                           type='number'
+                                           component={this.renderField}
+                                           label='Зарплата, евро'
+                                    />
                                 </Form.Group>
-                                    <Button primary type='submit' disabled={pristine || submitting}>Сохранить</Button>
+                                    <Button primary
+                                            type='submit'
+                                            disabled={pristine || submitting}
+                                    >
+                                        Сохранить
+                                    </Button>
                             </Form>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
-                        <Button floated='right' icon labelPosition='left' primary size='large' as={Link} to='/employees'>
+                        <Button floated='right'
+                                icon
+                                labelPosition='left'
+                                primary
+                                size='large'
+                                as={Link} to='/employees'
+                        >
                             <Icon name='list' /> Список
                         </Button>
                     </Grid.Column>

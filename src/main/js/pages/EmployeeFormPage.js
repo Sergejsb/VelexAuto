@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+import { bindActionCreators } from 'redux';
 import { SubmissionError } from 'redux-form';
 import { connect } from 'react-redux';
 import {
@@ -20,39 +21,45 @@ class EmployeeFormPage extends Component {
 
     componentDidMount = () => {
         const { id } = this.props.match.params;
+        const { fetchEmployee, newEmployee } = this.props;
+
         if (id) {
-            this.props.fetchEmployee(id)
+            fetchEmployee(id);
         }
-        this.props.newEmployee();
+            newEmployee();
     };
 
     submit = (employee) => {
+        const { saveEmployee, updateEmployee, errors } = this.props;
+
         if (!employee.id) {
-            return this.props.saveEmployee(employee)
-                .then(response => {
+            saveEmployee(employee)
+                .then(() => {
                     this.setState({redirect: true});
                 })
-                .catch(err => {
-                    throw new SubmissionError(this.props.errors);
+                .catch(() => {
+                    throw new SubmissionError(errors);
                 });
         } else {
-            return this.props.updateEmployee(employee)
-                .then(response => {
+            updateEmployee(employee)
+                .then(() => {
                     this.setState({redirect: true});
                 })
-                .catch(err => {
-                    throw new SubmissionError(this.props.errors);
+                .catch(() => {
+                    throw new SubmissionError(errors);
                 })
         }
     };
 
     render() {
+        const { employee, loading } = this.props;
+        const { redirect } = this.state;
         return (
             <div>
                 {
-                    this.state.redirect ?
+                    redirect ?
                     <Redirect to='/employees' /> :
-                    <EmployeeForm employee={this.props.employee} loading={this.props.loading} onSubmit={this.submit} />
+                    <EmployeeForm employee={employee} loading={loading} onSubmit={this.submit} />
                 }
             </div>
         );
@@ -60,16 +67,20 @@ class EmployeeFormPage extends Component {
 }
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        employee: state.employeeStore.employee,
-        errors: state.employeeStore.errors
+        employee: employeeStore.employee,
+        errors: employeeStore.errors
     }
 }
 
-//function mapDispatchToProps(dispatch) {
-//    return bindActionCreators({
-//        newEmpolee: newEmployee
-//    }, dispatch);
-//}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        newEmployee: newEmployee,
+        saveEmployee: saveEmployee,
+        fetchEmployee: fetchEmployee,
+        updateEmployee: updateEmployee
+    }, dispatch);
+}
 
-export default connect(mapStateToProps, { newEmployee, saveEmployee, fetchEmployee, updateEmployee })(EmployeeFormPage);
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeFormPage);

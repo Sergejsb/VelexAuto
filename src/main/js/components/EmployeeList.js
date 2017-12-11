@@ -65,21 +65,28 @@ export default function EmployeeList({employees, deleteEmployee, loading, errors
                 <Table.Body>
                     {employees.map(employee => {
                         return (
-                            <EmployeeTable key={employee.id} employee={employee} deleteEmployee={deleteEmployee} />
+                            <EmployeeTable key={employee.id}
+                                           employee={employee}
+                                           deleteEmployee={deleteEmployee}
+                            />
                         )
                     })}
                 </Table.Body>
             </Table>
             <Container>
-                <Button floated='right' icon labelPosition='left' primary size='large' as={Link} to='/employees/add'>
+                <Button floated='right'
+                        icon
+                        labelPosition='left'
+                        primary
+                        size='large'
+                        as={Link} to='/employees/add'
+                >
                     <Icon name='add user' /> Добавить
                 </Button>
             </Container>
         </div>
 
     );
-
-    const list = { employeeList };
 
     return (
         <div>
@@ -94,4 +101,4 @@ export default function EmployeeList({employees, deleteEmployee, loading, errors
 EmployeeList.propTypes = {
     employees: PropTypes.array.isRequired,
     deleteEmployee: PropTypes.func.isRequired
-}
+};

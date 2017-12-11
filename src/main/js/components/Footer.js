@@ -16,13 +16,17 @@ import '../../resources/static/css/components/Footer.css';
 class Footer extends Component {
 
     render() {
-        const isAuthenticated = this.props.isAuthenticated;
+        const { isAuthenticated } = this.props.isAuthenticated;
 
         const guests = (
             <Grid divided inverted stackable>
                 <Grid.Row>
                     <Grid.Column width={3}>
-                        <Header inverted as='h4' icon='copyright' content='VelexAuto' />
+                        <Header inverted
+                                as='h4'
+                                icon='copyright'
+                                content='VelexAuto'
+                        />
                     </Grid.Column>
                     <Grid.Column width={3}>
                         <List link inverted>
@@ -44,7 +48,11 @@ class Footer extends Component {
             <Grid divided inverted stackable>
                 <Grid.Row>
                     <Grid.Column width={3}>
-                        <Header inverted as='h4' icon='copyright' content='VelexAuto' />
+                        <Header inverted
+                                as='h4'
+                                icon='copyright'
+                                content='VelexAuto'
+                        />
                     </Grid.Column>
                     <Grid.Column width={3}>
                         <List link inverted>
@@ -74,8 +82,9 @@ class Footer extends Component {
 }
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        isAuthenticated: state.employeeStore.isAuthenticated
+        isAuthenticated: employeeStore.isAuthenticated
     }
 }
 

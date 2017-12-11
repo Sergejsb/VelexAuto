@@ -11,20 +11,33 @@ import { Link } from 'react-router-dom';
 
 export default function EmployeeTable({employee, deleteEmployee}) {
 
+    const { name, surname, age, salary } = employee;
+
     return (
         <Table.Row>
             <Table.Cell>
                 <Icon name='user circle' size='large' />
             </Table.Cell>
-            <Table.Cell>{employee.name}</Table.Cell>
-            <Table.Cell>{employee.surname}</Table.Cell>
-            <Table.Cell>{employee.age}</Table.Cell>
-            <Table.Cell>{employee.salary}</Table.Cell>
+            <Table.Cell>{name}</Table.Cell>
+            <Table.Cell>{surname}</Table.Cell>
+            <Table.Cell>{age}</Table.Cell>
+            <Table.Cell>{salary}</Table.Cell>
             <Table.Cell textAlign='center'>
-                <Button as={Link} to={`/employees/edit/${employee.id}`} size='small' color='blue' icon labelPosition='left' inverted>
+                <Button as={Link} to={`/employees/edit/${employee.id}`}
+                        size='small'
+                        color='blue'
+                        icon
+                        labelPosition='left'
+                        inverted
+                >
                     <Icon name='edit'/>Изменить
                 </Button>
-                <Modal trigger={<Button color='red' icon labelPosition='left' inverted size='small'>
+                <Modal trigger={<Button color='red'
+                                        icon
+                                        labelPosition='left'
+                                        inverted
+                                        size='small'
+                                >
                                     <Icon name='remove user' />Удалить
                                 </Button>} closeIcon dimmer='blurring'
                 >
@@ -33,10 +46,21 @@ export default function EmployeeTable({employee, deleteEmployee}) {
                         <p>Если желаете продолжить, то сотрудник будет удален из базы данных безвозвратно !</p>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='red' icon labelPosition='left' inverted size='small'>
+                        <Button color='red'
+                                icon
+                                labelPosition='left'
+                                inverted
+                                size='small'
+                        >
                             <Icon name='remove'/> Нет
                         </Button>
-                        <Button color='green' icon labelPosition='left' inverted size='small' onClick={() => deleteEmployee(employee)}>
+                        <Button color='green'
+                                icon
+                                labelPosition='left'
+                                inverted
+                                size='small'
+                                onClick={() => deleteEmployee(employee)}
+                        >
                             <Icon name='checkmark'/> Да
                         </Button>
                     </Modal.Actions>

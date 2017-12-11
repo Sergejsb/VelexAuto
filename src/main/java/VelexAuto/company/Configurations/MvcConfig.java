@@ -14,9 +14,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 //    @Override
 //    public void addCorsMappings(CorsRegistry registry) {
 //        registry.addMapping("/**")
-//                .allowedOrigins("http://localhost:9000", "http://localhost:8080")
-//                .allowedMethods("GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS")
+//                .allowedOrigins("http://localhost:9000")
+//                .allowedMethods("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS")
+//                //.allowedHeaders("Access-Control-Allow-Origin")
 //                .exposedHeaders("Authorization");
+//                //.allowCredentials(false).maxAge(3600);
 //    }
 
     @Override

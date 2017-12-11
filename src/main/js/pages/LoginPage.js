@@ -39,7 +39,8 @@ class LoginPage extends Component {
     };
 
     render() {
-        const {redirect} = this.state;
+        const { employee, loading } = this.props;
+        const { redirect } = this.state;
         return (
             <div>
                 <MenuComponent />
@@ -53,13 +54,13 @@ class LoginPage extends Component {
                         <Grid.Row>
                         <Grid.Column className='login-form'>
                             {
-                                this.state.redirect ?
+                                redirect ?
                                 <Redirect to='/employees' /> :
                                 <LoginForm
-                                    employee={this.props.employee}
-                                    loading={this.props.loading}
+                                    employee={employee}
+                                    loading={loading}
                                     onSubmit={this.submit}
-                                    />
+                                />
                             }
                             <Message color='blue'>
                                 Вход только для сотрудников
@@ -75,9 +76,10 @@ class LoginPage extends Component {
 }
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        employee: state.employeeStore.employee,
-        errors: state.employeeStore.errors
+        employee: employeeStore.employee,
+        errors: employeeStore.errors
     }
 }
 

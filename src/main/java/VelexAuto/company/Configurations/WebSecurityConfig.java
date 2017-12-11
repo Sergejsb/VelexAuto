@@ -3,6 +3,7 @@
 //import VelexAuto.company.Filter.JWTAuthFilter;
 //import VelexAuto.company.Filter.JWTLoginFilter;
 //
+//import VelexAuto.company.Filter.SimpleCORSFilter;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,7 +24,7 @@
 //
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
-//        http.cors().and().csrf().disable().authorizeRequests()
+//        http.csrf() .disable().authorizeRequests()
 //                .antMatchers("/", "/about", "/job", "/contacts", "/login").permitAll()
 //                .anyRequest().authenticated()
 //                .and()
@@ -40,8 +41,8 @@
 ////    @Bean
 ////    CorsConfigurationSource corsConfigurationSource() {
 ////        CorsConfiguration configuration = new CorsConfiguration();
-////        configuration.setAllowedOrigins(Arrays.asList("/**"));
-////        configuration.setAllowedHeaders(Arrays.asList("Content-Type, application/json"));
+////        configuration.setAllowedOrigins(Arrays.asList("http://localhost:9000"));
+////        configuration.setAllowCredentials(true);
 ////        configuration.setAllowedMethods(Arrays.asList("GET","POST", "DELETE", "PUT", "PATCH", "HEAD", "OPTIONS"));
 ////        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 ////        source.registerCorsConfiguration("/**", configuration);

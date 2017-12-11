@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { PropTypes } from 'prop-types';
 import EmployeeList from '../components/EmployeeList';
 import MenuComponent from '../components/MenuComponent';
@@ -25,6 +26,7 @@ class EmployeeListPage extends Component {
     }
 
     render() {
+        const { employees, deleteEmployee, loading, errors } = this.props;
         return (
             <div>
                 <MenuComponent />
@@ -37,8 +39,10 @@ class EmployeeListPage extends Component {
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column width={12}>
-                                <EmployeeList employees={this.props.employees} deleteEmployee={this.props.deleteEmployee}
-                                              loading={this.props.loading} errors={this.props.errors}
+                                <EmployeeList employees={employees}
+                                              deleteEmployee={deleteEmployee}
+                                              loading={loading}
+                                              errors={errors}
                                 />
                             </Grid.Column>
                         </Grid.Row>
@@ -58,12 +62,19 @@ EmployeeListPage.propTypes = {
 };
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        employees: state.employeeStore.employees,
-        loading: state.employeeStore.loading,
-        errors: state.employeeStore.errors
+        employees: employeeStore.employees,
+        loading: employeeStore.loading,
+        errors: employeeStore.errors
     }
 }
 
-// dispatch To Props
-export default connect(mapStateToProps, { fetchEmployees, deleteEmployee })(EmployeeListPage);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        fetchEmployees: fetchEmployees,
+        deleteEmployee: deleteEmployee
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeListPage);

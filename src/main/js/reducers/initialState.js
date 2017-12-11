@@ -3,5 +3,6 @@ export default {
     employee: {},
     loading: false,
     errors: {},
-    isAuthenticated: localStorage.getItem('jwt') ? true : false
+    isAuthenticated: false
+    //isAuthenticated: localStorage.getItem('jwt') ? true : false
 }

@@ -17,15 +17,28 @@ class MenuForMobiles extends Component {
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
     render() {
-        const  isAuthenticated  = this.props.isAuthenticated;
+        const { isAuthenticated }  = this.props.isAuthenticated;
         const { visible } = this.state;
 
         const guests = (
             <div>
-                <Button onClick={this.toggleVisibility} color='orange' inverted circular  icon labelPosition='left'>
+                <Button onClick={this.toggleVisibility}
+                        color='orange'
+                        inverted
+                        circular
+                        icon
+                        labelPosition='left'
+                >
                     <Icon name='sidebar' />Меню
                 </Button>
-                <Sidebar as={Menu} animation='overlay' width='thin' direction='right' visible={visible} vertical inverted>
+                <Sidebar as={Menu}
+                         animation='overlay'
+                         width='thin'
+                         direction='right'
+                         visible={visible}
+                         vertical
+                         inverted
+                >
                     <Menu.Item as={Link} to='/'>Начало</Menu.Item>
                     <Menu.Item as={Link} to='/about'>О нас</Menu.Item>
                     <Menu.Item as={Link} to='/job'>Карьера</Menu.Item>
@@ -44,10 +57,23 @@ class MenuForMobiles extends Component {
 
         const admin = (
             <div>
-                <Button onClick={this.toggleVisibility} color='orange' inverted circular  icon labelPosition='left'>
+                <Button onClick={this.toggleVisibility}
+                        color='orange'
+                        inverted
+                        circular
+                        icon
+                        labelPosition='left'
+                >
                     <Icon name='sidebar' />Меню
                 </Button>
-                <Sidebar as={Menu} animation='overlay' width='thin' direction='right' visible={visible} vertical inverted>
+                <Sidebar as={Menu}
+                         animation='overlay'
+                         width='thin'
+                         direction='right'
+                         visible={visible}
+                         vertical
+                         inverted
+                >
                     <Menu.Item as={Link} to='/'>Начало</Menu.Item>
                     <Menu.Item as={Link} to='/about'>О нас</Menu.Item>
                     <Menu.Item as={Link} to='/job'>Карьера</Menu.Item>
@@ -78,8 +104,9 @@ MenuForMobiles.propTypes = {
 };
 
 function mapStateToProps(state) {
+    const { employeeStore } = state;
     return {
-        isAuthenticated: state.employeeStore.isAuthenticated
+        isAuthenticated: employeeStore.isAuthenticated
     }
 }
 

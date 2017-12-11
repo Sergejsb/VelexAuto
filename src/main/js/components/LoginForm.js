@@ -5,14 +5,15 @@ import classnames from 'classnames';
 
 
 const validate = (values) => {
+    const { username, password } = values;
     const errors = {};
-    if(!values.username) {
+    if(!username) {
         errors.username = {
             message: 'Вам нужно указать имя пользователь'
         }
     }
 
-    if(!values.password) {
+    if(!password) {
         errors.password = {
             message: 'Вам нужно указать пароль'
         }
@@ -34,12 +35,29 @@ class LoginForm extends Component {
         const { handleSubmit, pristine, submitting, loading } = this.props;
         return (
             <div>
-                <Form size='large' onSubmit={handleSubmit} loading={loading}>
+                <Form size='large'
+                      onSubmit={handleSubmit}
+                      loading={loading}
+                >
                     <Segment stacked>
-                        <Field name='username' type='text' component={this.renderField} label='Имя пользователя:' />
-                        <Field name='password' type='password' component={this.renderField} label='Пароль:' />
-                        <Button color='orange' inverted fluid size='large'
-                                type='submit' disabled={pristine || submitting}>Вход
+                        <Field name='username'
+                               type='text'
+                               component={this.renderField}
+                               label='Имя пользователя:'
+                        />
+                        <Field name='password'
+                               type='password'
+                               component={this.renderField}
+                               label='Пароль:'
+                        />
+                        <Button color='orange'
+                                inverted
+                                fluid
+                                size='large'
+                                type='submit'
+                                disabled={pristine || submitting}
+                        >
+                            Вход
                         </Button>
                     </Segment>
                 </Form>

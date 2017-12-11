@@ -65,7 +65,13 @@ export default class HomePage extends Component {
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column textAlign='left'>
-                                <Button as={Link} to='/about' size='huge' color='blue' inverted>Узнать больше</Button>
+                                <Button as={Link} to='/about'
+                                        size='huge'
+                                        color='blue'
+                                        inverted
+                                >
+                                    Узнать больше
+                                </Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
@@ -80,14 +86,20 @@ export default class HomePage extends Component {
                                 <Header as='h3' className='home-headers'>Работа для водителей </Header>
 
                                 <p className='home-p'>
-                                    Если есть желание пополнить молодой<br /> коллектив автоводителей, то жми - узнать
-                                    больше !
+                                    Если есть желание пополнить молодой<br /> коллектив автоводителей,
+                                    то жми - узнать больше !
                                 </p>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row textAlign='right'>
                             <Grid.Column textAlign='right'>
-                                <Button as={Link} to='/job' size='huge' color='blue' inverted>Узнать больше</Button>
+                                <Button as={Link} to='/job'
+                                        size='huge'
+                                        color='blue'
+                                        inverted
+                                >
+                                    Узнать больше
+                                </Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
@@ -115,8 +127,9 @@ export default class HomePage extends Component {
                                     size='huge'
                                     color='blue'
                                     inverted
-                                    >
-                                    Узнать больше</Button>
+                                >
+                                    Узнать больше
+                                </Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
