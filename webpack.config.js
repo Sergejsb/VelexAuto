@@ -4,12 +4,12 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATH = {
-    src: path.join(__dirname, './src/main/js'),
+    src: path.join(__dirname, './src/main/js/'),
     build: path.join(__dirname, './src/main/resources/static')
 };
 
 const common = {
-    entry: PATH.src + '/index.js',
+    entry: PATH.src + './index.js',
     output: {
         path: PATH.build,
         filename: 'bundle.js'

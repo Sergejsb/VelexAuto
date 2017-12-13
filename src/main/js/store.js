@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
+import 'regenerator-runtime/runtime';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import { composeWithDevTools } from 'redux-devtools-extension';

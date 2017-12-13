@@ -51,7 +51,7 @@ class MenuComponent extends Component {
                 <Menu.Item as={Link} to='/job'>Карьера</Menu.Item>
                 <Menu.Item as={Link} to='/contacts'>Контакты</Menu.Item>
                 <Menu.Item as={Link} to='/employees'>Сотрудники</Menu.Item>
-                <Menu.Item onClick={this.logout.bind(this)} position='right'>
+                <Menu.Item onClick={this.logout} position='right'>
                     <Button animated inverted color='orange'>
                         <Button.Content visible>Выход<i className='user icon'></i></Button.Content>
                         <Button.Content hidden>

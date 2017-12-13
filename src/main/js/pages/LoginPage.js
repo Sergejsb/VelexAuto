@@ -28,14 +28,15 @@ class LoginPage extends Component {
         redirect: false
     };
 
-    submit = (employee) => {
-        this.props.login(employee)
-            .then(() => {
-                this.setState({ redirect: true });
-            })
-            .catch(() => {
-                throw new SubmissionError(this.props.errors);
-            });
+    submit = async (employee) => {
+        const { login, errors } = this.props;
+
+        try {
+            await login(employee);
+            this.setState({redirect: true});
+        } catch (err) {
+            errors(err);
+        }
     };
 
     render() {

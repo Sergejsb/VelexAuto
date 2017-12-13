@@ -22,7 +22,8 @@ import '../../resources/static/css/pages/EmployeeListPage.css';
 class EmployeeListPage extends Component {
 
     componentDidMount() {
-        this.props.fetchEmployees();
+        const { fetchEmployees } = this.props;
+        fetchEmployees();
     }
 
     render() {

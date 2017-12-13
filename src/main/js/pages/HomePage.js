@@ -15,7 +15,7 @@ import {
 
 import MenuComponent from '../components/MenuComponent';
 import Footer from '../components/Footer';
-import Slide from '../components/Slide';
+import ScreenImage from '../components/ScreenImage';
 import '../../resources/static/css/pages/HomePage.css';
 
 import Daf from '../../resources/static/pictures/daf.png';
@@ -41,7 +41,7 @@ export default class HomePage extends Component {
                                 <Container>
                                     <Image src={iPad} className='ipad' centered size='large'/>
                                     <Container className='screen'>
-                                        <Slide />
+                                        <ScreenImage />
                                     </Container>
                                 </Container>
                             </Grid.Column>

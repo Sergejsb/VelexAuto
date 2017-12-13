@@ -29,25 +29,19 @@ class EmployeeFormPage extends Component {
             newEmployee();
     };
 
-    submit = (employee) => {
+    submit = async (employee) => {
         const { saveEmployee, updateEmployee, errors } = this.props;
 
-        if (!employee.id) {
-            saveEmployee(employee)
-                .then(() => {
-                    this.setState({redirect: true});
-                })
-                .catch(() => {
-                    throw new SubmissionError(errors);
-                });
-        } else {
-            updateEmployee(employee)
-                .then(() => {
-                    this.setState({redirect: true});
-                })
-                .catch(() => {
-                    throw new SubmissionError(errors);
-                })
+        try {
+            if (!employee.id) {
+                await saveEmployee(employee);
+                this.setState({redirect: true});
+            } else {
+                await updateEmployee(employee);
+                this.setState({redirect: true});
+            }
+        } catch (err) {
+            errors(err);
         }
     };
 

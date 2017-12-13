@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Image, Icon } from 'semantic-ui-react';
 
 import DafGoldHome from '../../resources/static/pictures/daf_gold_home.png';
-import '../../resources/static/css/Slide.css';
+import '../../resources/static/css/ScreenImage.css';
 
 
-export default class Slide extends Component {
+export default class ScreenImage extends Component {
 
     render() {
         return (
