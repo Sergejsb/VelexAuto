@@ -92,16 +92,16 @@ export const deleteEmployee = (employee) => {
     }
 };
 
-const setEmployeesRequest = () => ({
+export const setEmployeesRequest = () => ({
     type: FETCH_EMPLOYEES_REQUEST
 });
 
-const setEmployeesSuccess = (data) => ({
+export const setEmployeesSuccess = (data) => ({
         type: FETCH_EMPLOYEES_SUCCESS,
         data
 });
 
-const setEmployeesFailure = (message) => ({
+export const setEmployeesFailure = (message) => ({
     type: FETCH_EMPLOYEES_FAILURE,
     message
 });
@@ -217,14 +217,14 @@ const setDeleteFailure = (message) => ({
 //    }
 //}
 //
-////export const fetchEmployees =  () => {
-////    return dispatch => {
-////        client.get(url)
-////            .then(res => {
-////                dispatch(setEmployeesRequest());
-////                dispatch(setEmployeesSuccess(res.data));
-////            }).catch(err => {
-////                dispatch(setEmployeeFailure(err.error));
-////            })
-////    }
-////};
+//export const fetchEmployees =  () => {
+//    return dispatch => {
+//        client.get(url1)
+//            .then(res => {
+//                dispatch(setEmployeesRequest());
+//                dispatch(setEmployeesSuccess(res.data));
+//            }).catch(err => {
+//                dispatch(setEmployeeFailure(err.error));
+//            })
+//    }
+//};

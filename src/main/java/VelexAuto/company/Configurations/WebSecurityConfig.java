@@ -3,7 +3,7 @@
 //import VelexAuto.company.Filter.JWTAuthFilter;
 //import VelexAuto.company.Filter.JWTLoginFilter;
 //
-//import VelexAuto.company.Filter.SimpleCORSFilter;
+////import VelexAuto.company.Filter.SimpleCORSFilter;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

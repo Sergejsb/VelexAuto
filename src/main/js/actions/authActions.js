@@ -1,9 +1,11 @@
 import { client } from './';
+import 'regenerator-runtime/runtime';
+
 
 const getJwt = 'http://localhost:8080/auth';
 
 
-export function login(employee) {
+export function login(auth) {
     return dispatch => {
         return client.post(getJwt, employee).then(response => {
             console.log(response);
@@ -18,3 +20,17 @@ export function logout() {
         localStorage.removeItem('jwt');
     }
 }
+//
+//export const login = async (auth) => {
+//    console.log(auth);
+//    try {
+//        const postJwt =  await client.post(getJwt, auth);
+//        console.log(postJwt);
+//    } catch (error) {
+//        console.log(error);
+//    }
+//};
+//
+//export const logout = () => {
+//    localStorage.removeItem('jwt');
+//};

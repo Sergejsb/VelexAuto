@@ -16,8 +16,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 //        registry.addMapping("/**")
 //                .allowedOrigins("http://localhost:9000")
 //                .allowedMethods("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS")
-//                //.allowedHeaders("Access-Control-Allow-Origin")
-//                .exposedHeaders("Authorization");
+//                .allowedHeaders("Content-Type", "application/json");
+//                //.exposedHeaders("Authorization")
 //                //.allowCredentials(false).maxAge(3600);
 //    }
 

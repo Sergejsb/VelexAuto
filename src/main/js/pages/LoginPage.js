@@ -28,11 +28,11 @@ class LoginPage extends Component {
         redirect: false
     };
 
-    submit = async (employee) => {
+    submit = (employee) => {
         const { login, errors } = this.props;
 
         try {
-            await login(employee);
+            login(employee);
             this.setState({redirect: true});
         } catch (err) {
             errors(err);
