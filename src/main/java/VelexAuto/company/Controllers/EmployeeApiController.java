@@ -14,7 +14,7 @@ import java.util.List;
 public class EmployeeApiController {
 
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @GetMapping("/employees/")
     public ResponseEntity<List<Employee>> listAllEmployees() {
