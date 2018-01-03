@@ -30,8 +30,11 @@ import {
     UPDATE_EMPLOYEE_FAILURE,
     DELETE_EMPLOYEE_REQUEST,
     DELETE_EMPLOYEE_SUCCESS,
-    DELETE_EMPLOYEE_FAILURE
+    DELETE_EMPLOYEE_FAILURE,
+    SET_USER,
+    SET_USER_FAILURE
 } from '../actions/constants';
+import isEmpty from 'lodash/isEmpty';
 
 
 export default (state = initialState, action={}) => {
@@ -143,6 +146,18 @@ export default (state = initialState, action={}) => {
                 ...state,
                 errors: { global: action.message },
                 loading: false
+            };
+
+        case SET_USER:
+            return {
+                ...state,
+                isAuthenticated: !isEmpty(action.user)
+            };
+
+        case SET_USER_FAILURE:
+            return {
+                ...state,
+                errors: { global: action.message }
             };
 
         //case FETCH_EMPLOYEES_PENDING:

@@ -100,5 +100,7 @@ export default function EmployeeList({employees, deleteEmployee, loading, errors
 
 EmployeeList.propTypes = {
     employees: PropTypes.array.isRequired,
-    deleteEmployee: PropTypes.func.isRequired
+    deleteEmployee: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    errors: PropTypes.object.isRequired
 };

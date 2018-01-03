@@ -81,6 +81,10 @@ class Footer extends Component {
     }
 }
 
+Footer.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired
+};
+
 function mapStateToProps(state) {
     const { employeeStore } = state;
     return {

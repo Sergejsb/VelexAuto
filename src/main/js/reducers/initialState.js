@@ -4,5 +4,4 @@ export default {
     loading: false,
     errors: {},
     isAuthenticated: false
-    //isAuthenticated: localStorage.getItem('jwt') ? true : false
 }

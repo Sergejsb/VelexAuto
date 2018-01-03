@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { SubmissionError } from 'redux-form';
+import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import {
     newEmployee,
@@ -59,6 +60,15 @@ class EmployeeFormPage extends Component {
         );
     }
 }
+
+EmployeeFormPage.propTypes = {
+    employee: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+    newEmployee: PropTypes.func.isRequired,
+    saveEmployee: PropTypes.func.isRequired,
+    fetchEmployee: PropTypes.func.isRequired,
+    updateEmployee: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
     const { employeeStore } = state;

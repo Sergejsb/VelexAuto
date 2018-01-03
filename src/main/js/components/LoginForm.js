@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
+import { PropTypes } from 'prop-types';
 import classnames from 'classnames';
 
 
@@ -65,4 +66,11 @@ class LoginForm extends Component {
         );
     }
 }
+
+LoginForm.propTypes = {
+    employee: PropTypes.object.isRequired,
+    loading: PropTypes.bool,
+    submit : PropTypes.func.isRequired
+};
+
 export default reduxForm({form: 'auth', validate})(LoginForm);

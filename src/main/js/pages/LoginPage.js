@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { SubmissionError } from 'redux-form';
 import { login } from '../actions/authActions';
+import { PropTypes } from 'prop-types';
 import { Redirect } from 'react-router';
 import {
     Button,
@@ -42,6 +44,7 @@ class LoginPage extends Component {
     render() {
         const { employee, loading } = this.props;
         const { redirect } = this.state;
+
         return (
             <div>
                 <MenuComponent />
@@ -56,7 +59,7 @@ class LoginPage extends Component {
                         <Grid.Column className='login-form'>
                             {
                                 redirect ?
-                                <Redirect to='/employees' /> :
+                                <Redirect to='/' /> :
                                 <LoginForm
                                     employee={employee}
                                     loading={loading}
@@ -76,6 +79,11 @@ class LoginPage extends Component {
     }
 }
 
+LoginPage.propTypes = {
+    employee: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
 function mapStateToProps(state) {
     const { employeeStore } = state;
     return {
@@ -84,5 +92,10 @@ function mapStateToProps(state) {
     }
 }
 
+function mapStateToDispatch(dispatch) {
+    return bindActionCreators({
+        login: login
+    }, dispatch);
+}
 
-export default connect(mapStateToProps, { login })(LoginPage);
+export default connect(mapStateToProps, mapStateToDispatch)(LoginPage);

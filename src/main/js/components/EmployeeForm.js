@@ -9,6 +9,7 @@ import {
     Segment
 } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
+import { PropTypes } from 'prop-types';
 import classnames from 'classnames';
 
 import '../../resources/static/css/components/EmployeeForm.css';
@@ -124,5 +125,11 @@ class EmployeeForm extends Component {
         );
     }
 }
+
+EmployeeForm.propTypes = {
+    employee: PropTypes.object.isRequired,
+    loading: PropTypes.bool,
+    submit: PropTypes.func.isRequired
+};
 
 export default reduxForm({form: 'employee', validate})(EmployeeForm);

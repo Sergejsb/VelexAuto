@@ -58,6 +58,8 @@ class EmployeeListPage extends Component {
 
 EmployeeListPage.propTypes = {
     employees: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    errors: PropTypes.object.isRequired,
     fetchEmployees: PropTypes.func.isRequired,
     deleteEmployee: PropTypes.func.isRequired
 };

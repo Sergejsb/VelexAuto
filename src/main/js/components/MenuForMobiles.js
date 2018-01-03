@@ -8,16 +8,23 @@ import {
     Button,
     Icon
 } from 'semantic-ui-react';
+import { logout } from '../actions/authActions';
+import { bindActionCreators } from 'redux';
 
 
 class MenuForMobiles extends Component {
 
     state = { visible: false };
 
+    logout = () => {
+        const { logout } = this.props;
+        logout();
+    };
+
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
 
     render() {
-        const { isAuthenticated }  = this.props.isAuthenticated;
+        const { isAuthenticated }  = this.props;
         const { visible } = this.state;
 
         const guests = (
@@ -79,7 +86,7 @@ class MenuForMobiles extends Component {
                     <Menu.Item as={Link} to='/job'>Карьера</Menu.Item>
                     <Menu.Item as={Link} to='/contacts'>Контакты</Menu.Item>
                     <Menu.Item as={Link} to='/employees'>Сотрудники</Menu.Item>
-                    <Menu.Item as={Link} to='/login' position='right'>
+                    <Menu.Item onClick={this.logout} as={Link} to='/login' position='right'>
                         <Button animated inverted color='orange'>
                             <Button.Content visible>Выход<i className='user icon'></i></Button.Content>
                             <Button.Content hidden>
@@ -100,7 +107,8 @@ class MenuForMobiles extends Component {
 }
 
 MenuForMobiles.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired,
+    logout: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -110,4 +118,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(MenuForMobiles);
+function mapStateToDispatch(dispatch) {
+    return bindActionCreators({
+        logout: logout
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapStateToDispatch)(MenuForMobiles);

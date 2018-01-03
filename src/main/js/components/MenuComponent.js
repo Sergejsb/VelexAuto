@@ -19,13 +19,13 @@ import '../../resources/static/css/components/MenuComponent.css';
 
 class MenuComponent extends Component {
 
-    logout() {
+    logout = () => {
         const { logout } = this.props;
         logout();
-    }
+    };
 
     render() {
-        const { isAuthenticated }  = this.props.isAuthenticated;
+        const { isAuthenticated }  = this.props;
 
         const guests = (
             <Menu inverted stackable secondary size='large'>
@@ -51,7 +51,7 @@ class MenuComponent extends Component {
                 <Menu.Item as={Link} to='/job'>Карьера</Menu.Item>
                 <Menu.Item as={Link} to='/contacts'>Контакты</Menu.Item>
                 <Menu.Item as={Link} to='/employees'>Сотрудники</Menu.Item>
-                <Menu.Item onClick={this.logout} position='right'>
+                <Menu.Item onClick={this.logout} as={Link} to='/login' position='right'>
                     <Button animated inverted color='orange'>
                         <Button.Content visible>Выход<i className='user icon'></i></Button.Content>
                         <Button.Content hidden>
