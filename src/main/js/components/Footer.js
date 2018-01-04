@@ -16,7 +16,7 @@ import '../../resources/static/css/components/Footer.css';
 class Footer extends Component {
 
     render() {
-        const { isAuthenticated } = this.props.isAuthenticated;
+        const { isAuthenticated } = this.props;
 
         const guests = (
             <Grid divided inverted stackable>

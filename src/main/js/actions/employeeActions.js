@@ -1,13 +1,6 @@
 import { client } from './';
 import 'regenerator-runtime/runtime';
 import {
-    //FETCH_EMPLOYEES,
-    //FETCH_EMPLOYEE,
-    //NEW_EMPLOYEE,
-    //SAVE_EMPLOYEE,
-    //UPDATE_EMPLOYEE,
-    //DELETE_EMPLOYEE,
-
     FETCH_EMPLOYEES_REQUEST,
     FETCH_EMPLOYEES_SUCCESS,
     FETCH_EMPLOYEES_FAILURE,
@@ -111,121 +104,58 @@ export const newEmployee = () => ({
     type: NEW_EMPLOYEE
 });
 
-const saveNewEmployeeRequest = () => ({
+export const saveNewEmployeeRequest = () => ({
     type: SAVE_EMPLOYEE_REQUEST
 });
 
-const saveNewEmployeeSuccess = (data) => ({
+export const saveNewEmployeeSuccess = (data) => ({
     type: SAVE_EMPLOYEE_SUCCESS,
     data
 });
 
-const saveNewEmployeeFailure = (message) => ({
+export const saveNewEmployeeFailure = (message) => ({
     type: SAVE_EMPLOYEE_FAILURE,
     message
 });
 
-const setEmployeeRequest = () => ({
+export const setEmployeeRequest = () => ({
     type: FETCH_EMPLOYEE_REQUEST
 });
 
-const setEmployeeSuccess = (data) => ({
+export const setEmployeeSuccess = (data) => ({
     type: FETCH_EMPLOYEE_SUCCESS,
     data
 });
 
-const setEmployeeFailure = (message) => ({
+export const setEmployeeFailure = (message) => ({
     type: FETCH_EMPLOYEE_FAILURE,
     message
 });
 
-const setUpdateRequest = () => ({
+export const setUpdateRequest = () => ({
     type: UPDATE_EMPLOYEE_REQUEST
 });
 
-const setUpdateSuccess = (data) => ({
+export const setUpdateSuccess = (data) => ({
     type: UPDATE_EMPLOYEE_SUCCESS,
     data
 });
 
-const setUpdateFailure = (message) => ({
+export const setUpdateFailure = (message) => ({
     type: UPDATE_EMPLOYEE_FAILURE,
     message
 });
 
-const setDeleteRequest = () => ({
+export const setDeleteRequest = () => ({
     type: DELETE_EMPLOYEE_REQUEST
 });
 
-const setDeleteSuccess = (employee) => ({
+export const setDeleteSuccess = (employee) => ({
     type: DELETE_EMPLOYEE_SUCCESS,
     employee
 });
 
-const setDeleteFailure = (message) => ({
+export const setDeleteFailure = (message) => ({
     type: DELETE_EMPLOYEE_FAILURE,
     message
 });
-
-//export function fetchEmployees() {
-//    return dispatch => {
-//        return dispatch({
-//            type: FETCH_EMPLOYEES,
-//            payload: client.get(url)
-//        });
-//    }
-//}
-//
-//export function fetchEmployee(id) {
-//    return dispatch => {
-//        return dispatch({
-//            type: FETCH_EMPLOYEE,
-//            payload: client.get(`${url}${id}`)
-//        });
-//    }
-//}
-//
-//export const newEmployee = () => ({
-//    type: NEW_EMPLOYEE
-//});
-//
-//export function saveEmployee(employee) {
-//    return dispatch => {
-//        return dispatch({
-//            type: SAVE_EMPLOYEE,
-//            payload: client.post(url, employee)
-//        });
-//    }
-//}
-//
-//export function updateEmployee(employee) {
-//    return dispatch => {
-//        return dispatch({
-//            type: UPDATE_EMPLOYEE,
-//            payload: client.patch(`${url}${employee.id}`, employee)
-//        });
-//    };
-//}
-//
-//export function deleteEmployee(employee) {
-//    return dispatch => {
-//        return dispatch({
-//            type: DELETE_EMPLOYEE,
-//            payload: client.delete(`${url}${employee.id}`, {
-//                data: employee.id
-//            })
-//        });
-//    }
-//}
-//
-//export const fetchEmployees =  () => {
-//    return dispatch => {
-//        client.get(url1)
-//            .then(res => {
-//                dispatch(setEmployeesRequest());
-//                dispatch(setEmployeesSuccess(res.data));
-//            }).catch(err => {
-//                dispatch(setEmployeeFailure(err.error));
-//            })
-//    }
-//};

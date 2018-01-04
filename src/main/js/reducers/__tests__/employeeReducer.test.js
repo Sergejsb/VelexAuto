@@ -1,11 +1,11 @@
-import reducer from '../reducers/employeeReducer.js';
-import initialState from '../reducers/initialState';
+import reducer from '../employeeReducer.js';
+import initialState from '../initialState';
 import _ from 'lodash';
 
 import {
     FETCH_EMPLOYEES_REQUEST,
     FETCH_EMPLOYEES_SUCCESS
-} from '../actions/constants';
+} from '../../actions/constants';
 
 
 describe('employee reducers test', () => {

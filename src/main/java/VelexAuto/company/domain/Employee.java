@@ -1,6 +1,5 @@
 package VelexAuto.company.domain;
 
-import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

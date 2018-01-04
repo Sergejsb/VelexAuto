@@ -9,21 +9,6 @@ import {
 
 const getJwt = 'http://localhost:8080/auth/token';
 
-//export function login(employee) {
-//    return dispatch => {
-//        return client.post(getJwt, employee).then(response => {
-//            console.log(response);
-//            const jwt = response.data.token;
-//            localStorage.setItem('jwt', 'Bearer ' + jwt);
-//        })
-//    }
-//}
-
-//export function logout() {
-//    return dispatch => {
-//        localStorage.removeItem('jwt');
-//    }
-//}
 
 export const login = (auth) => {
     return async dispatch => {

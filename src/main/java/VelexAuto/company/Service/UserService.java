@@ -1,7 +1,6 @@
 package VelexAuto.company.Service;
 
 
-
 import VelexAuto.company.Repository.UserRepository;
 import VelexAuto.company.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class UserService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(userId);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
         return new org.springframework.security.core.userdetails.User(

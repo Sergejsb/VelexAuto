@@ -1,5 +1,5 @@
-import employeeReducer from '../reducers/employeeReducer';
-import initialState from '../reducers/initialState';
+import employeeReducer from '../employeeReducer';
+import initialState from '../initialState';
 import _ from 'lodash';
 
 
