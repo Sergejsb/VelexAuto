@@ -1,5 +1,5 @@
-import * as types from '../constants';
-import * as actions from '../employeeActions';
+import * as types from '../actions/constants';
+import * as actions from '../actions/employeeActions';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
@@ -116,57 +116,7 @@ describe('async fetchEmployee action test', () => {
     });
 });
 
-describe('async saveEmployee action test', () => {
 
-    it('Create SAVE_EMPLOYEE_SUCCESS when request has been done', async () => {
-        mock.reset();
-        mock.onPost('/employees').reply(200);
-
-        const expectedActions = [
-            { type: types.SAVE_EMPLOYEE_REQUEST },
-            { type: types.SAVE_EMPLOYEE_SUCCESS, data: {
-                    //config: {
-                    //    "adapter": null,
-                    //    'data': '{"id":3,"name":"Conor","surname":"McGregor","age":29,"salary":1000}',
-                    //    headers : {
-                    //        "Accept": "application/json, text/plain, */*",
-                    //        "Content-Type": "application/json;charset=utf-8"
-                    //    },
-                    //    "maxContentLength": -1,
-                    //    "method": "post",
-                    //    "timeout": 0,
-                    //    transformRequest: {
-                    //        "0": [Function transformRequest],
-                    //    }
-                    //}
-                }
-            }
-        ];
-
-        const saveEmployee = (employee) => {
-            return async dispatch => {
-                try {
-                    const add = await axios.post('/employees', employee);
-                    dispatch(actions.saveNewEmployeeRequest());
-                    dispatch(actions.saveNewEmployeeSuccess(add));
-                } catch (error) {
-                    dispatch(actions.saveNewEmployeeFailure(error.message));
-                }
-            }
-        };
-
-        const store = mockStore({ employees: []});
-
-        await store.dispatch(saveEmployee({
-            id: 3,
-            name: 'Conor',
-            surname: 'McGregor',
-            age: 29,
-            salary: 1000
-        }));
-        expect(store.getActions()).toEqual(expectedActions);
-    });
-});
 
 
 
